@@ -3,6 +3,7 @@ package com.microprofile.lsp.internal;
 import org.eclipse.lsp4j.*;
 import org.eclipse.lsp4j.services.TextDocumentService;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -28,7 +29,7 @@ public class FullTextDocumentService implements TextDocumentService {
 
     @Override
     public CompletableFuture<Hover> hover(TextDocumentPositionParams position) {
-        return null;
+        return CompletableFuture.completedFuture(null);
     }
 
     @Override
@@ -38,12 +39,12 @@ public class FullTextDocumentService implements TextDocumentService {
 
     @Override
     public CompletableFuture<List<? extends Location>> definition(TextDocumentPositionParams position) {
-        return null;
+        return CompletableFuture.completedFuture(Collections.emptyList());
     }
 
     @Override
     public CompletableFuture<List<? extends Location>> references(ReferenceParams params) {
-        return null;
+        return CompletableFuture.completedFuture(Collections.emptyList());
     }
 
     @Override
@@ -53,7 +54,9 @@ public class FullTextDocumentService implements TextDocumentService {
 
     @Override
     public CompletableFuture<List<Either<SymbolInformation, DocumentSymbol>>> documentSymbol(DocumentSymbolParams params) {
-        return null;
+        return CompletableFuture.supplyAsync(() -> {
+			return Collections.emptyList();
+		});
     }
 
     @Override

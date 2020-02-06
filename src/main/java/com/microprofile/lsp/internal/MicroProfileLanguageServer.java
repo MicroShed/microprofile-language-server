@@ -73,7 +73,7 @@ public class MicroProfileLanguageServer implements LanguageServer, LanguageClien
 		 */
 		String name;
 		try {
-			name = Paths.get(new URI(params.getRootUri()).getPath()).getFileName().toString();
+			name = Paths.get(new URI(params.getRootUri())).getFileName().toString();
 		} catch (Exception e) {
 			name = "";
 			logMessage(MessageType.Error, "Could not find a root workspace folder: " + e);
