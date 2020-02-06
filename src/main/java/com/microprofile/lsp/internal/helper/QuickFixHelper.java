@@ -79,27 +79,22 @@ public class QuickFixHelper {
 				/*
 				 * MicroProfile Health
 				 */
-				// add @Health
 				if (diagnostic.getCode().equals(Integer.toString(MicroProfileConstants.MicroProfileHealthAnnotation))) {
-					String title = "Add missing @Health annotation";
+					// add @Liveness
+					String title = "Add missing @Liveness annotation";
 					Range editRange = new Range(new Position(diagnostic.getRange().getStart().getLine(), 0),
 							new Position(diagnostic.getRange().getStart().getLine(), 0));
-					String editStr = "@Health \n";
-
+					String editStr = "@Liveness \n";
 					createCodeAction(title, editRange, editStr, document);
 
-				}
+					// add @Readiness
+					title = "Add missing @Readiness annotation";
+					editStr = "@Readiness \n";
+					createCodeAction(title, editRange, editStr, document);
 
-
-				/*
-				 * MicroProfile Health
-				 */
-				// add @Health
-				if (diagnostic.getCode().equals(Integer.toString(MicroProfileConstants.MicroProfileHealthAnnotation))) {
-					String title = "Add missing @Health annotation";
-					Range editRange = new Range(new Position(diagnostic.getRange().getStart().getLine(), 0),
-							new Position(diagnostic.getRange().getStart().getLine(), 0));
-					String editStr = "@Health \n";
+					// add @Health
+					title = "Add missing @Health annotation";
+					editStr = "@Health \n";
 					createCodeAction(title, editRange, editStr, document);
 				}
 

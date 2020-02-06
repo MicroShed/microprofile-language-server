@@ -21,14 +21,14 @@ mvn clean package
 ## Language Capabilities
 
 #### Diagnostic warnings 
-- **MP Health 1.0**: `Health` annotation, `HealthCheck` interface implementation
+- **MP Health**: `Liveness`/`Readiness`/`Health` annotation, `HealthCheck` interface implementation
   - Quick fix
 - **MP Rest Client and CDI**: `RegisterRestClient` annotation, CDI injection with `Inject` annotation and `RestClient` annotation 
   - Quick fix
   	- Limitation: cross file validation searches for files under the assumption that files exist under `src/main/java` directory, otherwise searches all files under workspace root.
 
 #### Code complete suggestions with additional info
-- **MP Health 1.0**: `Health` annotation (appears whenever the language server is enabled, can be improved to be based on dependency on classpath)
+- **MP Health**: `Liveness`/`Readiness`/`Health` annotation (appears whenever the language server is enabled, can be improved to be based on dependency on classpath)
 
 #### Source actions
 - **MP OpenAPI**: Right-click in a class to generate `Operation` OpenAPI annotation
