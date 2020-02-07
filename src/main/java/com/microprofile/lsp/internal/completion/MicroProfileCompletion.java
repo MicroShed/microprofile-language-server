@@ -25,8 +25,28 @@ public class MicroProfileCompletion {
 			healthAnnotation.setInsertText("Health");
 			healthAnnotation.setData(MicroProfileConstants.HealthAnnotationCompletion);
 			healthAnnotation.setDetail("The @Health annotation allows this bean to be discovered automatically when the http://HOST:PORT/health endpoint receives a request.");
-			healthAnnotation.setSortText(" " + healthAnnotation.getSortText());
+			healthAnnotation.setSortText(" 3" + healthAnnotation.getSortText());
 			completions.add(healthAnnotation);
+
+			CompletionItem livenessAnnotation = new CompletionItem();
+			
+			livenessAnnotation.setLabel("Liveness - org.eclipse.microprofile.health");
+			livenessAnnotation.setKind(CompletionItemKind.Class);
+			livenessAnnotation.setInsertText("Liveness");
+			livenessAnnotation.setData(MicroProfileConstants.LivenessAnnotationCompletion);
+			livenessAnnotation.setDetail("The @Liveness annotation indicates that this bean is a liveness health check procedure.");
+			livenessAnnotation.setSortText(" 1" + livenessAnnotation.getSortText());
+			completions.add(livenessAnnotation);
+
+			CompletionItem readinessAnnotation = new CompletionItem();
+			
+			readinessAnnotation.setLabel("Readiness - org.eclipse.microprofile.health");
+			readinessAnnotation.setKind(CompletionItemKind.Class);
+			readinessAnnotation.setInsertText("Readiness");
+			readinessAnnotation.setData(MicroProfileConstants.ReadinessAnnotationCompletion);
+			readinessAnnotation.setDetail("The @Readiness annotation indicates that this bean is a readiness health check procedure.");
+			readinessAnnotation.setSortText(" 2" + readinessAnnotation.getSortText());
+			completions.add(readinessAnnotation);
 			
 			/**
 			 * MicroProfile OpenAPI
