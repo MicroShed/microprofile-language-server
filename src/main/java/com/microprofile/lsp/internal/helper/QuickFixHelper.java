@@ -41,6 +41,10 @@ public class QuickFixHelper {
 		if (diagnostics != null) {
 
 			for (Diagnostic diagnostic : diagnostics) {
+				if (diagnostic.getCode() == null) {
+					continue;
+				}
+
 				/*
 				 * MicroProfile Rest Client
 				 */
