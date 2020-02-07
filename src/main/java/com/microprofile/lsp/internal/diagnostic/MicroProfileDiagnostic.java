@@ -249,11 +249,11 @@ public class MicroProfileDiagnostic {
 				/*
 				 * MicroProfile Health
 				 * 
-				 * DIAGNOSTIC 1: display Health annotation diagnostic message if Health
+				 * DIAGNOSTIC 1: display Health annotation diagnostic message if Health/Liveness/Readiness
 				 * annotation exists but HealthCheck interface is not implemented
 				 * 
 				 * DIAGNOSTIC 2: display HealthCheck diagnostic message if HealthCheck interface
-				 * is implemented but Health annotation does not exist
+				 * is implemented but Health/Liveness/Readiness annotation does not exist
 				 */
 				// iterate through annotations
 				Annotation healthAnnotation = null;
@@ -262,7 +262,8 @@ public class MicroProfileDiagnostic {
 					if (next2 instanceof IExtendedModifier) {
 						IExtendedModifier modifier = (IExtendedModifier) next2;
 						if (modifier.isAnnotation()) {
-							if (modifier.toString().equals("@Health")) {
+							String annotation = modifier.toString();
+							if (annotation.equals("@Health") || annotation.equals("@Liveness") || annotation.equals("@Readiness")) {
 
 								healthAnnotationFlag = true;
 								healthAnnotation = (Annotation) modifier;
@@ -300,7 +301,7 @@ public class MicroProfileDiagnostic {
 				// HEALTH DIAGNOSTIC 1
 				if (healthAnnotationFlag && !healthCheckInterfaceFlag) {
 					Diagnostic diag = createDiagnostic(uri,
-							"The class using the @Health annotation should implement the HealthCheck interface.",
+							"The class using the @Liveness, @Readiness, or @Health annotation should implement the HealthCheck interface.",
 							healthAnnotationRange,
 							"Implement the HealthCheck interface in the class that uses this annotation.",
 							Integer.toString(MicroProfileConstants.MicroProfileHealthCheck));
@@ -312,8 +313,8 @@ public class MicroProfileDiagnostic {
 				if (healthCheckInterfaceFlag && !healthAnnotationFlag) {
 					Diagnostic diag = createDiagnostic(uri,
 							"The class " + type.getName()
-									+ " implementing the HealthCheck interface should use the @Health annotation.",
-							healthCheckInterfaceRange, "Add the @Health annotation to this class.",
+									+ " implementing the HealthCheck interface should use the @Liveness, @Readiness, or @Health annotation.",
+							healthCheckInterfaceRange, "Add the @Liveness, @Readiness, or @Health annotation to this class.",
 							Integer.toString(MicroProfileConstants.MicroProfileHealthAnnotation));
 
 					diagnostics.add(diag);
