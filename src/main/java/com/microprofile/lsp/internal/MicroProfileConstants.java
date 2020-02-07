@@ -24,5 +24,7 @@ public final class MicroProfileConstants {
 	
 	// completion item codes for MicroProfile
 	public static final int HealthAnnotationCompletion = IProblem.Internal + MicroProfile + 6;
+	public static final int LivenessAnnotationCompletion = IProblem.Internal + MicroProfile + 7;
+	public static final int ReadinessAnnotationCompletion = IProblem.Internal + MicroProfile + 8;
 	
 }
