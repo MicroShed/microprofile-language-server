@@ -31,8 +31,7 @@ mvn clean package
 - **MP Health**: `Liveness`/`Readiness`/`Health` annotation (appears whenever the language server is enabled, can be improved to be based on dependency on classpath)
 
 #### Source actions
-- **MP OpenAPI**: Right-click in a class to generate `Operation` OpenAPI annotation
-	- To trigger the source action from vs code highlight the method name and open the command palette, select `Source Action...`, then `Generate OpenAPI Annotations`. Currently the `Source Action` option does not appear in the vs code context menu.
+- **MP OpenAPI**: Right-click in a class to generate `Operation` OpenAPI annotation via source actions
 	- If there is already an `Operation` annotation on the current method, the `Generate OpenAPI Annotations` option will not appear.
 	- An `Operation` annotation will be generated for any number of methods in a single class with a Response return type who do not already have an `Operation` annotation.
 
