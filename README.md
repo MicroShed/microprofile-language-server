@@ -1,6 +1,8 @@
 
 # MicroProfile Language Server
 
+⚠⚠ **This repository is deprecated! See [Eclipse LSP4MP](https://github.com/eclipse/lsp4mp/) instead.** ⚠⚠
+
 MicroProfile language server implementation for Java files.
 
 ## Clients
